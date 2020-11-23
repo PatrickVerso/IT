@@ -1,0 +1,250 @@
+<it prosjekt>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Psykologi</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Exo:wght@200&family=Oswald:wght@300&display=swap"
+            rel="stylesheet">
+
+        <style>
+            body {
+                background-color: #338DFF;
+            }
+
+            h1 {
+                text-align: center;
+                color: ghostwhite;
+                font-size: 96px;
+                font-family: 'Exo', sans-serif;
+            }
+
+            p {
+                text-align: center;
+                color: ghostwhite;
+                font-family: 'Oswald', sans-serif;
+                font-size: 36px;
+            }
+
+
+            h2 {
+                text-align: center;
+                color: ghostwhite;
+                font-family: 'Exo', sans-serif;
+                font-size: 64px;
+            }
+
+            .FreudBilde {
+                padding-left: 37.5px;
+            }
+
+            .WatsonBilde {
+                padding-left: 75px;
+            }
+
+            .MaslowBilde {
+                padding-left: 75px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1> Fagkunnskap i psykologi </h1>
+        <p>Psykologi er studien av atfard og mentale prosseser, og det er flere nevneverdige psykologer, her kan du
+            lære om noen av de; Sigmund Freud, John B. Watson og Abraham Maslow</p>
+        <a class="FreudBilde" href="SigmundFreud (1).HTML">
+            <img width="400px" height="600px"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Sigmund_Freud%2C_by_Max_Halberstadt_%28cropped%29.jpg/1200px-Sigmund_Freud%2C_by_Max_Halberstadt_%28cropped%29.jpg">
+        </a>
+        <a class="WatsonBilde" href="Watson.html">
+            <img width="400px" height="600px"
+                src="https://upload.wikimedia.org/wikipedia/commons/b/ba/John_Broadus_Watson.JPG" alt="Watson">
+        </a>
+        <a class="MaslowBilde" href="Maslow.html">
+            <img width="400px" height="600px"
+                src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Abraham_Maslow.jpg/220px-Abraham_Maslow.jpg">
+        </a>
+        <center>
+            <h2>Ta en quiz for å sjekke fagkunnskapen din, eller for å se om du har lært noe.</h2>
+            <button id="quizKnapp" style="width: 120px; height: 60px;">Ta en quiz!</button>
+            <h3 id="quizSpml"></h3>
+            <button id="svarSpmEn1" style="visibility: hidden;">Psykoanalysen</button> <button id="svarSpmEn2"
+                style="visibility: hidden;">behaviorismen</button> <button id="svarTre"
+                style="visibility: hidden;">samfunnspsykologien</button> <button id="svarFire"
+                style="visibility: hidden;">Klinisk psykologi</button>
+            <h2 id="feilsvar"></h2>
+            <button id="feilSvarBtn" style="visibility: hidden;">Prøv igjen.</button>
+        </center>
+        <script>
+            var quizKnapp = document.getElementById("quizKnapp");
+            var quizSpml = document.getElementById("quizSpml");
+            var svarEn = document.getElementById("svarSpmEn1")
+            var svarTo = document.getElementById("svarSpmEn2")
+            var svarTre = document.getElementById("svarTre")
+            var svarFire = document.getElementById("svarFire")
+            var feilSvar = document.getElementById("feilsvar");
+            btnFeilSvar = document.getElementById("feilSvarBtn");
+            var feilSvarTelling = 0;
+
+
+            quizKnapp.onclick = function quizSpm1() {
+                quizKnapp.style.visibility = 'hidden';
+                quizSpml.innerHTML = "Hvilken psykologisk gren lagde Sigmund Freud?";
+                svarEn.style.visibility = 'visible';
+                svarTo.style.visibility = "visible";
+                svarTre.style.visibility = "visible";
+                svarFire.style.visibility = "visible";
+                feilSvar.innerHTML = ""
+                btnFeilSvar.style.visibility = "hidden";
+                svarEn.innerHTML = "Psykoanalysen";
+                svarTo.innerHTML = "Behaviorismen";
+                svarTre.innerHTML = "Samfunnspsykologien";
+                svarFire.innerHTML = "Klinisk pyskologi";
+
+                svarTo.onclick = function () {
+                    feilSvar.innerHTML = "Du svarte feil, prøv igjen";
+                    btnFeilSvar.style.visibility = "visible";
+                    btnFeilSvar.onclick = quizSpm1
+                    svarEn.style.visibility = 'hidden';
+                    svarTo.style.visibility = "hidden";
+                    svarTre.style.visibility = "hidden";
+                    svarFire.style.visibility = "hidden";
+                    feilSvarTelling = feilSvarTelling + 1;
+                }
+                svarTre.onclick = function () {
+                    feilSvar.innerHTML = "Du svarte feil, prøv igjen";
+                    btnFeilSvar.style.visibility = "visible";
+                    btnFeilSvar.onclick = quizSpm1
+                    svarSpmEn1.style.visibility = 'hidden';
+                    svarTo.style.visibility = "hidden";
+                    svarTre.style.visibility = "hidden";
+                    svarFire.style.visibility = "hidden";
+                    feilSvarTelling = feilSvarTelling + 1;
+                }
+                svarFire.onclick = function () {
+                    feilSvar.innerHTML = "Du svarte feil, prøv igjen";
+                    btnFeilSvar.style.visibility = "visible";
+                    btnFeilSvar.onclick = quizSpm1;
+                    svarSpmEn1.style.visibility = 'hidden';
+                    svarTo.style.visibility = "hidden";
+                    svarTre.style.visibility = "hidden";
+                    svarFire.style.visibility = "hidden";
+                    feilSvarTelling = feilSvarTelling + 1;
+                }
+
+                svarEn.onclick = function Spm2() {
+                    quizSpml.innerHTML = "Hvilken gren av psykologien er Watson kjent for å ha skapt?";
+                    svarSpmEn1.style.visibility = 'visible';
+                    svarTo.style.visibility = "visible";
+                    svarTre.style.visibility = "visible";
+                    svarFire.style.visibility = "visible";
+                    feilSvar.innerHTML = ""
+                    btnFeilSvar.style.visibility = "hidden";
+
+
+                    function feilSvar2() {
+                        feilSvar.innerHTML = "Du svarte feil, prøv igjen";
+                        btnFeilSvar.style.visibility = "visible";
+                        btnFeilSvar.onclick = Spm2;
+                        svarEn.style.visibility = 'hidden';
+                        svarTo.style.visibility = "hidden";
+                        svarTre.style.visibility = "hidden";
+                        svarFire.style.visibility = "hidden";
+                        feilSvarTelling = feilSvarTelling + 1;
+                    }
+                    svarFire.onclick = feilSvar2;
+                    svarTre.onclick = feilSvar2;
+                    svarEn.onclick = feilSvar2;
+
+
+
+                    svarTo.onclick = function Spm3() {
+                        quizSpml.innerHTML = "Hvilken del av psykologien handler om å fikse mentale sykdommer?";
+                        svarEn.style.visibility = 'visible';
+                        svarTo.style.visibility = "visible";
+                        svarTre.style.visibility = "visible";
+                        svarFire.style.visibility = "visible";
+                        feilSvar.innerHTML = "";
+                        btnFeilSvar.style.visibility = "hidden";
+
+                        function feilSvar3() {
+                            feilSvar.innerHTML = "Du svarte feil, prøv igjen";
+                            btnFeilSvar.style.visibility = "visible";
+                            btnFeilSvar.onclick = Spm3;
+                            svarEn.style.visibility = 'hidden';
+                            svarTo.style.visibility = "hidden";
+                            svarTre.style.visibility = "hidden";
+                            svarFire.style.visibility = "hidden";
+                            feilSvarTelling = feilSvarTelling + 1;
+                        }
+                        svarEn.onclick = feilSvar3;
+                        svarTo.onclick = feilSvar3;
+                        svarTre.onclick = feilSvar3;
+
+                        svarFire.onclick = function Spm4() {
+                            quizSpml.innerHTML = "Hvem var det som lagde en utviklingsteori relatert til psykoanalysen?";
+                            svarEn.style.visibility = 'visible';
+                            svarTo.style.visibility = "visible";
+                            svarTre.style.visibility = "visible";
+                            svarFire.style.visibility = "visible";
+                            feilSvar.innerHTML = "";
+                            btnFeilSvar.style.visibility = "hidden";
+                            svarEn.innerHTML = "John B. Watson";
+                            svarTo.innerHTML = "Sigmund Freud";
+                            svarTre.innerHTML = "Erik Erikson";
+                            svarFire.innerHTML = "Abraham Maslow";
+
+
+
+                            function feilSvar4() {
+                                feilSvar.innerHTML = "Du svarte feil, prøv igjen";
+                                btnFeilSvar.style.visibility = "visible";
+                                btnFeilSvar.onclick = Spm4;
+                                svarEn.style.visibility = 'hidden';
+                                svarTo.style.visibility = "hidden";
+                                svarTre.style.visibility = "hidden";
+                                svarFire.style.visibility = "hidden";
+                                feilSvarTelling = feilSvarTelling + 1;
+                            }
+                            function quizFerdig() {
+                                svarEn.style.visibility = 'hidden';
+                                svarTo.style.visibility = "hidden";
+                                svarTre.style.visibility = "hidden";
+                                svarFire.style.visibility = "hidden";
+                                if (feilSvarTelling === 0) {
+                                    quizSpml.innerHTML = "Gratulerer, du greide quizen uten å svare feil en eneste gang.";
+                                } else if (feilSvarTelling < 5) {
+                                    quizSpml.innerHTML = "Du greide det på under 5 forsøk, men det er rom for forbedring, vil du prøve igjen?";
+                                    btnFeilSvar.style.visibility = "visible";
+                                    btnFeilSvar.onclick = quizSpm1;
+                                    feilSvarTelling = 0;
+                                } else {
+                                    quizSpml.innerHTML = "Du brukte " + feilSvarTelling + " forsøk, og bør prøve igjen."
+                                    btnFeilSvar.style.visibility = "visible";
+                                    btnFeilSvar.onclick = quizSpm1;
+                                    feilSvarTelling = 0;
+                                }
+
+                            }
+
+                            svarTo.onclick = feilSvar4;
+                            svarEn.onclick = feilSvar4;
+                            svarFire.onclick = feilSvar4;
+                            svarTre.onclick = quizFerdig;
+
+                        }
+                    }
+                }
+
+
+            }
+
+
+
+
+        </script>
+    </body>
+
+    </html>
